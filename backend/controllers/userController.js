@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 
 
 const createToken = (id) => {
-        return jwt.sign({id},process.env.JWT_SECRECT)
+        return jwt.sign({id},process.env.JWT_SECRET)
 }
 
 // Route for user login
@@ -62,7 +62,7 @@ const registerUser = async (req,res) => {
 
         //generating token 
         const token = createToken(user._id)
-        res.status(201).json({success:true,token})
+        return res.status(201).json({success:true,token})
       }
       catch(error){
                 console.log(error);
@@ -72,6 +72,19 @@ const registerUser = async (req,res) => {
 
 //Route for admin login 
 const adminLogin = async (req,res) => {
+        try {
+                const{email,password} = req.body
+                if(email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD){
+                        const token = jwt.sign(email+password,process.env.JWT_SECRET);
+                        return res.json({success:true,token})
+                } else
+                {
+                       return res.json({success:false,message:"Invalid Credentials"})
+                }
+        } catch (error) {
+                console.log(error);
+                return res.status(500).json({success:false,message:error.message})
+        }
         
 }
 
