@@ -9,7 +9,7 @@ Features
 - User authentication (register/login with JWT)
 - Browse and search clothing products
 - Product details with images, sizes, and prices
-- Add to cart and checkout (payment integration optional)
+- Add to cart and checkout 
 - Order history for users
 - Responsive design for all screen sizes
 
@@ -23,19 +23,19 @@ Admin Panel
 
 Tech Stack
 ----------
-- Frontend (User): React.js, Redux, Tailwind CSS
-- Admin: React.js, separate dashboard UI
+- Frontend (User): React.js, Tailwind CSS
+- Admin: React.js
 - Backend: Node.js, Express.js
 - Database: MongoDB
 - Authentication: JWT (JSON Web Tokens)
-- File Upload: Multer / Cloudinary (optional)
+- File Upload: Multer, Cloudinary 
 
 Project Structure
 -----------------
 /frontend     - User-facing React application  
 /admin        - Admin dashboard React application  
 /backend      - Express.js API and MongoDB logic  
-/uploads      - (Optional) Product image storage  
+/uploads      - Product image storage  
 .env          - Environment variables
 
 Setup Instructions
@@ -52,14 +52,14 @@ Setup Instructions
    Create a `.env` file in the `/backend` folder with:
    MONGO_URI=your_mongodb_connection_string  
    JWT_SECRET=your_jwt_secret  
-   CLOUDINARY_API_KEY=... (if used)
+   CLOUDINARY_API_KEY=your_api_key
 
-4. Run the app locally:
+5. Run the app locally:
    - Backend: `npm run dev` (inside /backend)
    - Frontend (User): `npm start` (inside /frontend)
    - Admin Panel: `npm start` (inside /admin)
 
-5. Access the app:
+6. Access the app:
    - User Site: http://localhost:3000  
    - Admin Panel: http://localhost:3001 (or whichever port is configured)
 
@@ -67,9 +67,6 @@ Contributing
 ------------
 This is a solo learning and development project. Contributions, forks, and ideas are welcome.
 
-License
--------
-MIT License
 
 Author
 ------
